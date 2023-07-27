@@ -5,17 +5,8 @@ import java.lang.Math;
 class practice {
 	public static void main(String args[]) {
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("Enter a number: ");
-		int number = scanner.nextInt();
-		int trash = number, sum =  0;
-		while (trash != 0) {
-			sum += Math.pow(trash%10, 3);
-			trash /= 10;
-		}
-		if (sum == number) {
-			System.out.println("This number is an armstrong number");
-		} else {
-			System.out.println("This number was never an armstrong number");
+		for (int i=0; i < 5; i++) {
+			compareViaTernary(scanner);
 		}
 		scanner.close();
 	}
@@ -51,5 +42,21 @@ class practice {
 			trash /= 10;
 		}
 		return sum == number;
+	}
+	
+	public static void arrayShowcase(int size) {
+		int arr[] = new int[size];
+		for (int i = 0; i < size; i++) {
+			arr[i] = i+1;
+		}
+		for (int i: arr) {
+			System.out.println("Elem @ " + (i-1) + ": " + i);
+		}
+	}
+	public static void compareViaTernary(Scanner scanner) {
+		System.out.print("Enter three numbers, space separated: ");
+		int x = scanner.nextInt(), y = scanner.nextInt(), z = scanner.nextInt();
+		int greatestOfEmAll = x > y ? x > z ? x : z > y ?  z : y : z;
+		System.out.println("Greatest of em all: " + greatestOfEmAll);
 	}
 }
