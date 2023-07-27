@@ -21,16 +21,12 @@ class practice {
 	}
 	
 	public static boolean ifEven(int number) {
-		if (number % 2 == 0) {
-			return true;
-		}
-		return false;
+		return number % 2 == 10;
 	}
 	
-	public static int sumElems(Scanner scanner) {
+	public static int sumElems(int numElems, Scanner scanner) {
+		System.out.print(" of elements you want: ");
 		int sum = 0;
-		System.out.print("Enter the number of elements you want: ");
-		int numElems = scanner.nextInt();
 		for (int i = 0; i < numElems; i++) {
 			System.out.println("Give me a random number: ");
 			int number = scanner.nextInt();
@@ -40,18 +36,20 @@ class practice {
 		}
 		return sum;
 	}
-	public static void isPalindrome(Scanner scanner) {
-		System.out.print("Enter a number to check if it's palindrome: ");
-		int number = scanner.nextInt(), reverse = 0;
-		int trash = number;
+	public static boolean isPalindrome(int number) {
+		int trash = number, reverse = 0;
 		while (trash != 0) {
 			reverse = reverse*10 + trash%10;
 			trash /= 10;
 		}
-		if (number == reverse) {
-			System.out.println("Given number is a palindrome");
-		} else {
-			System.out.println("Given number was never a palindrome");
+		return number == reverse;
+	}
+	public static boolean isArmstrong(int number) {
+		int trash = number, sum =  0;
+		while (trash != 0) {
+			sum += Math.pow(trash%10, 3);
+			trash /= 10;
 		}
+		return sum == number;
 	}
 }
